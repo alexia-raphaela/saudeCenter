@@ -3,14 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TelaBeneficiarioComponent } from './tela-beneficiario/tela-beneficiario.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { AgendamentoComponent } from './agendamento/agendamento.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TelaBeneficiarioComponent,
-    CadastroComponent
+    CadastroComponent,
+    AgendamentoComponent
   ],
   imports: [
     BrowserModule,

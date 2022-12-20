@@ -1,5 +1,4 @@
-import { IBeneficiarioDto } from './interfaces/IBeneficiario';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,21 +6,17 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'saudeCenter';
-  home: IBeneficiarioDto[] = [];
-  cadastro!: IBeneficiarioDto;
-  telaParaApresentar = 'beneficiario'
-
-  cadastrarBeneficiario(){}
-
-  constructor(private router: Router){
+  constructor(private router: Router) {
 
   }
-  ngOnInit(){}
-
-  goToCadastrar(){
-    this.router.navigate(['/cadastrar'])
+  goToCadastro(){
+    this.router.navigate(['/', 'casdastro']);
   }
+
+  goToAgendamento(){
+    this.router.navigate(['/', 'agendamento']);
+  }
+
 }
-
