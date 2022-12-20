@@ -14,11 +14,11 @@ export class AppComponent implements OnInit {
   ngOnInit() {
   }
   goToCadastro(){
-    this.router.navigate(['/cadastro']);
+    this.router.navigate(['/', 'cadastro']);
   }
 
   goToAgendamento(){
-    this.router.navigate(['/agendamento']);
+    this.router.navigate(['/', 'agendamento']);
   }
 
 }

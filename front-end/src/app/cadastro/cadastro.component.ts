@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./cadastro.component.css']
 })
 export class CadastroComponent {
-  @Input() beneficiario!: IBeneficiarioDto;
- // @Input()  fecharCadastro!:() => void;
+  //@Input() beneficiario!: IBeneficiarioDto;
+  //@Input()  fecharCadastro!:() => void;
 
 }
