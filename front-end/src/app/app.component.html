@@ -1,3 +1,4 @@
+<div *ngIf="telaParaApresentar == 'beneficiario'">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,14 +16,15 @@
         <a class="nav-link" href="#">Especialidade</a>
       </li>-->
       <li class="nav-item">
-        <a class="nav-link" href="#">Entrar</a>
+        <a routerLink="/cadastro" class="nav-link" href="#">Cadastrar</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Agendamento de consulta</a>
       </li>
-      <!--<li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link" href="#">Agendamento configuração</a>
-      </li>-->
+      </li>
     </ul>
   </div>
 </nav>
+</div>
