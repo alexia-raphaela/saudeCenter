@@ -7,36 +7,30 @@ using System.Text;
 
 namespace SaudeCenter.Repository
 {
-    public class BeneficiariosRepository
+    public class BeneficiarioRepository : IBeneficiarioRepository
     {
-        private readonly IConfiguration _configuration;
-
-        public BeneficiariosRepository()
+        public BeneficiarioRepository()
         {
 
         }
-        public BeneficiariosRepository(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
-
-        public IList<Beneficiario>? ListarTodos()
+        public IList<BeneficiarioDto>? ListarTodos()
         {
             try
             {
                 StringBuilder strComando = new StringBuilder();
-                strComando.AppendLine("SELECT idBeneficiario, " +
-                                "Nome, " +
-                                "Cpf, " +
-                                "Telefone, " +
-                                "Endereco, " +
-                                "NumeroCarteirinha, " +
-                                "Ativo, " +
-                                "email, " +
-                                "senha FROM Beneficiario");
+                strComando.AppendLine(
+                    "SELECT idBeneficiario, " +
+                    "Nome, " +
+                    "Cpf, " +
+                    "Telefone, " +
+                    "Endereco, " +
+                    "NumeroCarteirinha, " +
+                    "Ativo, " +
+                    "email, " +
+                    "senha FROM Beneficiario");
 
                 SqlConnection connection = new SqlConnection(new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build().GetConnectionString("Sql"));
-                List<Beneficiario> beneficiarios = connection.Query<Beneficiario>(strComando.ToString()).ToList();
+                List<BeneficiarioDto> beneficiarios = connection.Query<BeneficiarioDto>(strComando.ToString()).ToList();
 
                 return beneficiarios;
             }
@@ -46,28 +40,27 @@ namespace SaudeCenter.Repository
             }
         }
 
-        public Beneficiario Consultar(int idBeneficiario)
+        public BeneficiarioDto Consultar(int idBeneficiario)
         {
             try
             {
-                SqlConnection connection = new SqlConnection(new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build().GetConnectionString("Sql"));
-
                 var dynamicParameters = new DynamicParameters();
                 dynamicParameters.Add("@idBeneficiario", idBeneficiario);
 
-                Beneficiario beneficiario =
-                    connection.Query<Beneficiario>(
-                        "SELECT idBeneficiario, " +
-                                "Nome, " +
-                                "Cpf, " +
-                                "Telefone, " +
-                                "Endereco, " +
-                                "NumeroCarteirinha, " +
-                                "Ativo, " +
-                                "email, " +
-                                "senha FROM Beneficiario where idBeneficiario = @idBeneficiario",
-                        dynamicParameters
-                        ).FirstOrDefault();
+                SqlConnection connection = new SqlConnection(new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build().GetConnectionString("Sql"));
+                BeneficiarioDto beneficiario =
+                connection.Query<BeneficiarioDto>(
+                    "SELECT idBeneficiario, " +
+                    "Nome, " +
+                    "Cpf, " +
+                    "Telefone, " +
+                    "Endereco, " +
+                    "NumeroCarteirinha, " +
+                    "Ativo, " +
+                    "email, " +
+                    "senha FROM Beneficiario where idBeneficiario = @idBeneficiario",
+                dynamicParameters
+                ).FirstOrDefault();
 
                 if (beneficiario == null || beneficiario.IdBeneficiario == 0)
                 {
@@ -75,7 +68,7 @@ namespace SaudeCenter.Repository
                 }
                 return beneficiario;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -98,9 +91,9 @@ namespace SaudeCenter.Repository
             {
                 return 0;
             }
-        }        
+        }
 
-        public int Alterar(Beneficiario beneficiario)
+        public int Alterar(BeneficiarioDto beneficiario)
         {
             try
             {
@@ -108,7 +101,7 @@ namespace SaudeCenter.Repository
 
                 int linhasAfetadas = connection.Execute(
                         "UPDATE BENEFICIARIO " +
-                        "set Nome = @Nome, " +
+                        "SET Nome = @Nome, " +
                         "Cpf = @Cpf, " +
                         "Telefone = @Telefone, " +
                         "Endereco = @Endereco, " +
@@ -116,7 +109,7 @@ namespace SaudeCenter.Repository
                         "Ativo = @Ativo, " +
                         "email = @email, " +
                         "senha = @senha " +
-                    "where idBeneficiario = @idBeneficiario", beneficiario);
+                        "WHERE idBeneficiario = @idBeneficiario", beneficiario);
 
                 return linhasAfetadas;
             }
@@ -137,7 +130,7 @@ namespace SaudeCenter.Repository
                 dynamicParameters.Add("@idBeneficiario", idBeneficiario);
 
                 int linhasAfetadas = connection.Execute(
-                        "DELETE BENEFICIARIO WHERE idBeneficiario = @idBeneficiario  ", dynamicParameters);
+                        "DELETE FROM BENEFICIARIO WHERE idBeneficiario = @idBeneficiario  ", dynamicParameters);
 
                 return linhasAfetadas;
             }

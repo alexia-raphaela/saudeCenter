@@ -9,32 +9,32 @@ namespace SaudeCenter.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BeneficiariosController : Controller
+    public class EspecialidadeController : Controller
     {
-        private readonly BeneficiariosRepository beneficiariosRepository;
+        private readonly EspecialidadeRepository especialidadeRepository;
 
-        public BeneficiariosController()
+        public EspecialidadeController()
         {
-            beneficiariosRepository = new BeneficiariosRepository();
+            especialidadeRepository = new EspecialidadeRepository();
         }
 
 
         [HttpGet]
-        [Route("/ListarTodos")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<BeneficiarioDto>))]
+        [Route("/Especialidade/ListarTodos")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<EspecialidadeDto>))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult ListarTodos()
         {
             try
             {
-                var beneficiarios = beneficiariosRepository.ListarTodos();
+                var especialidades = especialidadeRepository.ListarTodos();
 
-                if (beneficiarios == null)
+                if (especialidades == null)
                 {
-                    return NotFound();
+                    return NotFound("Não há nenhum registro de especialidade.");
                 }
-                return Ok(beneficiarios);
+                return Ok(especialidades);
             }
             catch (Exception ex)
             {
@@ -43,22 +43,21 @@ namespace SaudeCenter.Controllers
         }
 
         [HttpGet]
-        [Route("/ConsultarPorBeneficiario/{idBeneficiario}")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(BeneficiarioDto))]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [Route("/Especialidade/ConsultarPorEspecialidade/{idEspecialidade}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(EspecialidadeRepository))]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult ConsultarPorBeneficiario(int idBeneficiario)
+        public IActionResult ConsultarPorEspecialidade(int idEspecialidade)
         {
             try
             {
-                var beneficiarios = beneficiariosRepository.Consultar(idBeneficiario);
+                var especialidade = especialidadeRepository.Consultar(idEspecialidade);
 
-                if (beneficiarios == null)
+                if (especialidade == null)
                 {
-                    return NotFound();
+                    return Content("Não foi encontrada a especialidade.");
                 }
-
-                return Ok(beneficiarios);
+                return Ok(especialidade);
             }
             catch (Exception ex)
             {
@@ -67,18 +66,40 @@ namespace SaudeCenter.Controllers
         }
 
         [HttpPost]
-        [Route("/CadastrarBeneficiario")]
+        [Route("/Especialidade/CadastrarEspecialidade")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult CadastrarBeneficiario(Beneficiario beneficiario)
+        public IActionResult CadastrarEspecialidade(Especialidade especialidade)
         {
             try
             {
-                int linhasAfetadas = beneficiariosRepository.Inserir(beneficiario);
+                int linhasAfetadas = especialidadeRepository.Inserir(especialidade);
 
                 if (linhasAfetadas == 0)
                 {
                     return BadRequest("Nenhum Cadastro foi realizado.");
+                }
+                return Ok(linhasAfetadas);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPatch]
+        [Route("/Especialidade/Atualizar")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult Atualizar(EspecialidadeDto especialidade)
+        {
+            try
+            {
+                int linhasAfetadas = especialidadeRepository.Alterar(especialidade);
+
+                if (linhasAfetadas == 0)
+                {
+                    return BadRequest("Nenhum cadastro foi atualizado.");
                 }
 
                 return Ok(linhasAfetadas);
@@ -90,41 +111,18 @@ namespace SaudeCenter.Controllers
         }
 
         [HttpDelete]
-        [Route("/Delete")]
+        [Route("/Especialidade/Delete")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Delete(int idBeneficiario)
+        public IActionResult Delete(int idEspecialidade)
         {
             try
             {
-                int linhasAfetadas = beneficiariosRepository.Excluir(idBeneficiario);
+                int linhasAfetadas = especialidadeRepository.Excluir(idEspecialidade);
 
                 if (linhasAfetadas == 0)
                 {
                     return BadRequest("Nenhum cadastro foi Excluído.");
-                }
-
-                return Ok(linhasAfetadas);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
-
-        [HttpPatch]
-        [Route("/Atualizar")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Atualizar(Beneficiario beneficiario)
-        {
-            try
-            {
-                int linhasAfetadas = beneficiariosRepository.Alterar(beneficiario);
-
-                if (linhasAfetadas == 0)
-                {
-                    return BadRequest("Nenhum Cadastro foi Atualizado.");
                 }
 
                 return Ok(linhasAfetadas);
