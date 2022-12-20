@@ -8,11 +8,6 @@ import { Component, Input } from '@angular/core';
 })
 export class CadastroComponent {
   @Input() beneficiario!: IBeneficiarioDto;
-  @Input()  fecharCadastro!:() => void;
+ // @Input()  fecharCadastro!:() => void;
 
-  constructor() {}
-
-  fechar() {
-    this.fecharCadastro();
-  }
 }

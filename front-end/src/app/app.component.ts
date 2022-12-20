@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,17 +6,19 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'saudeCenter';
   constructor(private router: Router) {
 
   }
+  ngOnInit() {
+  }
   goToCadastro(){
-    this.router.navigate(['/', 'casdastro']);
+    this.router.navigate(['/cadastro']);
   }
 
   goToAgendamento(){
-    this.router.navigate(['/', 'agendamento']);
+    this.router.navigate(['/agendamento']);
   }
 
 }
