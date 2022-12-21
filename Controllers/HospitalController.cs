@@ -9,32 +9,32 @@ namespace SaudeCenter.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BeneficiarioController : Controller
+    public class HospitalController : Controller
     {
-        private readonly BeneficiarioRepository beneficiarioRepository;
+        private readonly HospitalRepository hospitalRepository;
 
-        public BeneficiarioController()
+        public HospitalController()
         {
-            beneficiarioRepository = new BeneficiarioRepository();
+            hospitalRepository = new HospitalRepository();
         }
 
 
         [HttpGet]
-        [Route("/Beneficiario/ListarTodos")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<BeneficiarioDto>))]
+        [Route("/Hospital/ListarTodos")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<HospitalDto>))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult ListarTodos()
         {
             try
             {
-                var beneficiarios = beneficiarioRepository.ListarTodos();
+                var hospitais = hospitalRepository.ListarTodos();
 
-                if (beneficiarios == null)
+                if (hospitais == null)
                 {
-                    return NotFound("Não há beneficários para serem listados.");
+                    return NotFound("Não há hospitais para serem listados.");
                 }
-                return Ok(beneficiarios);
+                return Ok(hospitais);
             }
             catch (Exception ex)
             {
@@ -43,22 +43,22 @@ namespace SaudeCenter.Controllers
         }
 
         [HttpGet]
-        [Route("/Beneficiario/ConsultarPorBeneficiario/{idBeneficiario}")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(BeneficiarioRepository))]
+        [Route("/Hospital/ConsultarPorHospital/{idHospital}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(HospitalRepository))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult ConsultarPorBeneficiario(int idBeneficiario)
+        public IActionResult ConsultarPorHospital(int idHospital)
         {
             try
             {
-                var beneficiario = beneficiarioRepository.Consultar(idBeneficiario);
+                var hospital = hospitalRepository.Consultar(idHospital);
 
-                if (beneficiario == null)
+                if (hospital == null)
                 {
                     return NotFound("Cadastro não foi encontrado.");
                 }
 
-                return Ok(beneficiario);
+                return Ok(hospital);
             }
             catch (Exception ex)
             {
@@ -67,14 +67,14 @@ namespace SaudeCenter.Controllers
         }
 
         [HttpPost]
-        [Route("/Beneficiario/CadastrarBeneficiario")]
+        [Route("/Hospital/CadastrarHospital")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult CadastrarBeneficiario(Beneficiario beneficiario)
+        public IActionResult CadastrarHospital(Hospital hospital)
         {
             try
             {
-                int linhasAfetadas = beneficiarioRepository.Inserir(beneficiario);
+                int linhasAfetadas = hospitalRepository.Inserir(hospital);
 
                 if (linhasAfetadas == 0)
                 {
@@ -90,14 +90,14 @@ namespace SaudeCenter.Controllers
         }
 
         [HttpPatch]
-        [Route("/Beneficiario/Atualizar")]
+        [Route("/Hospital/Atualizar")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Atualizar(BeneficiarioDto beneficiario)
+        public IActionResult Atualizar(HospitalDto hospital)
         {
             try
             {
-                int linhasAfetadas = beneficiarioRepository.Alterar(beneficiario);
+                int linhasAfetadas = hospitalRepository.Alterar(hospital);
 
                 if (linhasAfetadas == 0)
                 {
@@ -113,14 +113,14 @@ namespace SaudeCenter.Controllers
         }
 
         [HttpDelete]
-        [Route("/Beneficiario/Delete")]
+        [Route("/Hospital/Delete")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Delete(int idBeneficiario)
+        public IActionResult Delete(int idHospital)
         {
             try
             {
-                int linhasAfetadas = beneficiarioRepository.Excluir(idBeneficiario);
+                int linhasAfetadas = hospitalRepository.Excluir(idHospital);
 
                 if (linhasAfetadas == 0)
                 {
@@ -133,6 +133,6 @@ namespace SaudeCenter.Controllers
             {
                 return BadRequest(ex.Message);
             }
-        }       
+        }
     }
 }
