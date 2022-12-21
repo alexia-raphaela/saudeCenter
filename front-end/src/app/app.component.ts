@@ -35,6 +35,10 @@ export class AppComponent implements OnInit {
     this.router.navigate(['/cadastro-especialidade'])
   }
 
+  goToListagemPaciente(){
+    this.router.navigate(['/listagem-paciente'])
+  }
+
   goToAgendamento(){
     this.router.navigate(['/agendamento']);
   }

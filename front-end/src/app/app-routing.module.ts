@@ -5,6 +5,7 @@ import { CadastroMedicoComponent } from './cadastro-medico/cadastro-medico.compo
 import { CadastroHospitalComponent } from './cadastro-hospital/cadastro-hospital.component';
 import { CadastroComponent } from './cadastro-paciente/cadastro.component';
 import { CadastroEspecialidadeComponent } from './cadastro-especialidade/cadastro-especialidade.component'
+import { ListagemPacienteComponent } from './listagem-paciente/listagem-paciente.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'cadastro-medico', component: CadastroMedicoComponent },
   { path: 'cadastro-hospital', component: CadastroHospitalComponent },
   { path: 'cadastro-especialidade', component: CadastroEspecialidadeComponent },
+  { path: 'listagem-paciente', component: ListagemPacienteComponent },
   { path: 'agendamento', component: AgendamentoComponent}
 ];
 
