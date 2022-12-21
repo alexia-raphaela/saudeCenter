@@ -3,53 +3,42 @@
   <div class="row">
     <div class="col-md-4">
       <label for="inputName" class="form-label">Nome Completo</label>
-      <input type="text" class="form-control" id="inputName">
+      <input type="text" class="form-control" id="inputName"  [(ngModel)]="beneficiario.nome" name="inputName">
     </div>
 
     <div class="col-md-4">
       <label for="inputCpf" class="form-label">CPF</label>
-      <input mask="CPF_CNPJ" class="form-control" id="inputCpf">
+      <input mask="CPF_CNPJ" class="form-control" id="inputCpf"  [(ngModel)]="beneficiario.cpf" name="inputCpf">
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-4">
       <label for="inputEmail" class="form-label">Email</label>
-      <input type="email" class="form-control" id="inputEmail">
+      <input type="email" class="form-control" id="inputEmail"  [(ngModel)]="beneficiario.email" name="inputEmail">
     </div>
 
     <div class="col-md-4">
       <label for="inputPassword" class="form-label">Senha</label>
-      <input type="password" class="form-control" id="inputPassword">
+      <input type="password" class="form-control" id="inputPassword"  [(ngModel)]="beneficiario.senha" name="inputPassword">
     </div>
   </div>
 
-  <div class="row">
     <div class="col-md-4">
       <label for="inputAddress" class="form-label">Endereço</label>
-      <input type="text" class="form-control" id="inputAddress">
+      <input type="text" class="form-control" id="inputAddress"  [(ngModel)]="beneficiario.endereco" name="inputAddress">
     </div>
 
-    <div class="col-md-2">
-      <label for="inputCity" class="form-label">Cidade</label>
-      <input type="text" class="form-control" id="inputCity">
-    </div>
-
-    <div class="col-md-2">
-      <label for="inputState" class="form-label">Estado</label>
-      <input type="text" class="form-control" id="inputState">
-    </div>
-  </div>
 
   <div class="row">
     <div class="col-md-3">
       <label for="inputPhone" class="form-label">Telefone</label>
-      <input type="text" class="form-control" id="inputPhone">
+      <input type="text" class="form-control" id="inputPhone"  [(ngModel)]="beneficiario.telefone" name="inputPhone">
     </div>
 
     <div class="col-md-3">
       <label for="input" class="form-label">Nº Carteirinha</label>
-      <input type="text" class="form-control" id="inputCity">
+      <input type="text" class="form-control" id="inputCity"  [(ngModel)]="beneficiario.numeroCarteirinha" name="inputCity">
     </div>
   </div>
 
@@ -63,7 +52,7 @@
   </div>
 
   <div>
-    <button type="submit" class="btn" style="background-color: #1358ab; color: white;">Cadastrar</button>
+    <button (click)="cadastrar()" class="btn" style="background-color: #1358ab; color: white;">Cadastrar</button>
   </div>
 </form>
 
