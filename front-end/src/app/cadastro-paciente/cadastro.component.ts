@@ -1,4 +1,4 @@
-import { IBeneficiarioDto } from './../interfaces/IBeneficiario';
+import { IBeneficiarioDto } from '../interfaces/IBeneficiario';
 import { Component, Input } from '@angular/core';
 
 @Component({

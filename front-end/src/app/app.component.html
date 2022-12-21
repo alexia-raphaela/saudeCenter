@@ -1,20 +1,344 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgMzcwLjAwMSAzNzAuMDAxIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAzNzAuMDAxIDM3MC4wMDE7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxnIGlkPSJHdWlkZXNfRm9yX0FydGJvYXJkXzE5XyI+DQoJPC9nPg0KCTxnIGlkPSJBcnR3b3JrXzE4XyI+DQoJPC9nPg0KCTxnIGlkPSJMYXllcl8yXzE4XyI+DQoJCTxnPg0KCQkJPHBhdGggc3R5bGU9ImZpbGw6I0U3NDQyNDsiIGQ9Ik0zMjIuODIxLDEyMi4wNTVoLTc0Ljg4MlY0Ny4xN2MwLTI2LjA1Ni0yMS4xMTQtNDcuMTctNDcuMTctNDcuMTdoLTI3LjI0NmgtNC4yOTcNCgkJCQljLTI2LjA1LDAtNDcuMTc1LDIxLjExNC00Ny4xNzUsNDcuMTd2NzQuODg1SDQ3LjE2M2MtMjYuMDM1LDAtNDcuMTYxLDIxLjEyMS00Ny4xNjEsNDcuMTY2djMxLjU1DQoJCQkJYzAsMjYuMDQ5LDIxLjEyNiw0Ny4xNjMsNDcuMTYxLDQ3LjE2M2g3NC44ODl2NzQuODg3YzAsMjYuMDU2LDIxLjEyNSw0Ny4xOCw0Ny4xNzUsNDcuMThoNC4yOTdoMjcuMjQ2DQoJCQkJYzI2LjA1NiwwLDQ3LjE3LTIxLjEyNCw0Ny4xNy00Ny4xOHYtNzQuODg3aDc0Ljg4MmMyNi4wNjEsMCw0Ny4xNzctMjEuMTE0LDQ3LjE3Ny00Ny4xNjN2LTMxLjU1DQoJCQkJQzM2OS45OTgsMTQzLjE3NiwzNDguODgyLDEyMi4wNTUsMzIyLjgyMSwxMjIuMDU1eiBNMjQ2LjM3MiwxNzguMTUzYy0yLjg0NCwxNy4zMjItMjMuNTMyLDM2Ljc5Mi00MC4xOTYsNTIuNDY5DQoJCQkJYzAsMC04LjMxNSw4LjM0OS0xMC44MTIsMTAuNDg5Yy0xLjg3MywxLjYxMi01Ljk1MSw0Ljg1NC0xMC4zNiw0Ljg1NGMtNC40MTcsMC04LjQ4NS0zLjI0Mi0xMC4zNjgtNC44NTQNCgkJCQljLTIuNDk2LTIuMTQxLTEwLjgxMy0xMC40ODktMTAuODEzLTEwLjQ4OWMtMTYuNjY1LTE1LjY3Ny0zNy4zNTEtMzUuMTM4LTQwLjE5Ni01Mi40NjljLTEuOTk0LTEyLjI0OC0wLjA0OC0yMi4zNDcsNS43OTUtMzAuMDE1DQoJCQkJYzUuODk2LTcuNzQyLDE0Ljg2Ny0xMi4xNTksMjcuNDMxLTEzLjUwNGMxLjIxOC0wLjEyMiwyLjMxLTAuMTc5LDMuNDE0LTAuMTc5YzguODc1LDAsMTcuODUsMy4zMDcsMjQuNzI5LDguOTAxDQoJCQkJYzYuODktNS41OTQsMTUuODU1LTguOTAxLDI0Ljc0Ny04LjkwMWMxLjA5NCwwLDIuMTk3LDAuMDU3LDMuNDA0LDAuMTc5YzEyLjU2MywxLjM0NSwyMS41MjcsNS43NjIsMjcuNDI5LDEzLjUwNA0KCQkJCUMyNDYuNDIxLDE1NS44MDYsMjQ4LjM2NiwxNjUuOTA1LDI0Ni4zNzIsMTc4LjE1M3oiLz4NCgkJCTxwYXRoIHN0eWxlPSJmaWxsOiNGN0YxRTY7IiBkPSJNMjEzLjE0NywxMzQuNjM0Yy0xLjIwNy0wLjEyMi0yLjMxMS0wLjE3OS0zLjQwNC0wLjE3OWMtOC44OTIsMC0xNy44NTcsMy4zMDctMjQuNzQ3LDguOTAxDQoJCQkJYy02Ljg4LTUuNTk0LTE1Ljg1NC04LjkwMS0yNC43MjktOC45MDFjLTEuMTA0LDAtMi4xOTYsMC4wNTctMy40MTQsMC4xNzljLTEyLjU2MywxLjM0NS0yMS41MzUsNS43NjItMjcuNDMxLDEzLjUwNA0KCQkJCWMtNS44NDMsNy42NjgtNy43ODksMTcuNzY4LTUuNzk1LDMwLjAxNWMyLjg0NiwxNy4zMzEsMjMuNTMxLDM2Ljc5Miw0MC4xOTYsNTIuNDY5YzAsMCw4LjMxNiw4LjM0OSwxMC44MTMsMTAuNDg5DQoJCQkJYzEuODgzLDEuNjEyLDUuOTUxLDQuODU0LDEwLjM2OCw0Ljg1NGM0LjQwOSwwLDguNDg3LTMuMjQyLDEwLjM2LTQuODU0YzIuNDk2LTIuMTQxLDEwLjgxMi0xMC40ODksMTAuODEyLTEwLjQ4OQ0KCQkJCWMxNi42NjQtMTUuNjc3LDM3LjM1My0zNS4xNDYsNDAuMTk2LTUyLjQ2OWMxLjk5NC0xMi4yNDgsMC4wNDktMjIuMzQ3LTUuNzk2LTMwLjAxNQ0KCQkJCUMyMzQuNjc1LDE0MC4zOTYsMjI1LjcxMSwxMzUuOTc5LDIxMy4xNDcsMTM0LjYzNHoiLz4NCgkJPC9nPg0KCTwvZz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjwvc3ZnPg0K" width="30" height="30" alt="">
-  <a class="navbar-brand">Saude Center</a>
+<style>
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" (click)="goToCadastro()">Cadastro</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" (click)="goToAgendamento()">Agendamento Consulta</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .toolbar {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+  }
+
+  .toolbar img {
+    margin: 0 16px;
+  }
+
+  .toolbar #twitter-logo {
+    height: 40px;
+    margin: 0 8px;
+  }
+
+  .toolbar #youtube-logo {
+    height: 40px;
+    margin: 0 16px;
+  }
+
+  .toolbar #twitter-logo:hover,
+  .toolbar #youtube-logo:hover {
+    opacity: 0.8;
+  }
+
+  .content {
+    display: flex;
+    margin: 82px auto 32px;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  svg.material-icons {
+    height: 24px;
+    width: auto;
+  }
+
+  svg.material-icons:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  .card svg.material-icons path {
+    fill: #888;
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .card {
+    all: unset;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    height: 40px;
+    width: 200px;
+    margin: 0 8px 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+  }
+
+  .card-container .card:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .card.card-small {
+    height: 16px;
+    width: 168px;
+  }
+
+  .card-container .card:not(.highlight-card) {
+    cursor: pointer;
+  }
+
+  .card-container .card:not(.highlight-card):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+  }
+
+  .card-container .card:not(.highlight-card):hover .material-icons path {
+    fill: rgb(105, 103, 103);
+  }
+
+  .card.highlight-card {
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+    border: none;
+    width: auto;
+    min-width: 30%;
+    position: relative;
+  }
+
+  .card.card.highlight-card span {
+    margin-left: 60px;
+  }
+
+  svg#rocket {
+    width: 80px;
+    position: absolute;
+    left: -10px;
+    top: -24px;
+  }
+
+  svg#rocket-smoke {
+    height: calc(100vh - 95px);
+    position: absolute;
+    top: 10px;
+    right: 180px;
+    z-index: -10;
+  }
+
+  a,
+  a:visited,
+  a:hover {
+    color: #1976d2;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #125699;
+  }
+
+  .terminal {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 6px;
+    padding-top: 45px;
+    margin-top: 8px;
+    overflow: hidden;
+    background-color: rgb(15, 15, 16);
+  }
+
+  .terminal::before {
+    content: "\2022 \2022 \2022";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: rgb(58, 58, 58);
+    color: #c2c3c4;
+    width: 100%;
+    font-size: 2rem;
+    line-height: 0;
+    padding: 14px 0;
+    text-indent: 4px;
+  }
+
+  .terminal pre {
+    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+    color: white;
+    padding: 0 1rem 1rem;
+    margin: 0;
+  }
+
+  .circle-link {
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+    margin: 8px;
+    background-color: white;
+    border: 1px solid #eeeeee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: 1s ease-out;
+  }
+
+  .circle-link:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  footer {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    line-height: 20px;
+  }
+
+  footer a {
+    display: flex;
+    align-items: center;
+  }
+
+  .github-star-badge {
+    color: #24292e;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    padding: 3px 10px;
+    border: 1px solid rgba(27,31,35,.2);
+    border-radius: 3px;
+    background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
+    margin-left: 4px;
+    font-weight: 600;
+  }
+
+  .github-star-badge:hover {
+    background-image: linear-gradient(-180deg,#f0f3f6,#e6ebf1 90%);
+    border-color: rgba(27,31,35,.35);
+    background-position: -.5em;
+  }
+
+  .github-star-badge .material-icons {
+    height: 16px;
+    width: 16px;
+    margin-right: 4px;
+  }
+
+  svg#clouds {
+    position: fixed;
+    bottom: -160px;
+    left: -230px;
+    z-index: -10;
+    width: 1920px;
+  }
+
+  /* Responsive Styles */
+  @media screen and (max-width: 767px) {
+    .card-container > *:not(.circle-link) ,
+    .terminal {
+      width: 100%;
+    }
+
+    .card:not(.highlight-card) {
+      height: 16px;
+      margin: 8px 0;
+    }
+
+    .card.highlight-card span {
+      margin-left: 72px;
+    }
+
+    svg#rocket-smoke {
+      right: 120px;
+      transform: rotate(-5deg);
+    }
+  }
+
+  @media screen and (max-width: 575px) {
+    svg#rocket-smoke {
+      display: none;
+      visibility: hidden;
+    }
+  }
+</style>
+
+
+
+
+
+<!-- Toolbar -->
+<div class="toolbar" role="banner" style="background-color: #0a2262; height: 15vh;">
+  <img
+    width="40"
+    alt="Saude Center Logo"
+    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgMzcwLjAwMSAzNzAuMDAxIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAzNzAuMDAxIDM3MC4wMDE7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxnIGlkPSJHdWlkZXNfRm9yX0FydGJvYXJkXzE5XyI+DQoJPC9nPg0KCTxnIGlkPSJBcnR3b3JrXzE4XyI+DQoJPC9nPg0KCTxnIGlkPSJMYXllcl8yXzE4XyI+DQoJCTxnPg0KCQkJPHBhdGggc3R5bGU9ImZpbGw6I0U3NDQyNDsiIGQ9Ik0zMjIuODIxLDEyMi4wNTVoLTc0Ljg4MlY0Ny4xN2MwLTI2LjA1Ni0yMS4xMTQtNDcuMTctNDcuMTctNDcuMTdoLTI3LjI0NmgtNC4yOTcNCgkJCQljLTI2LjA1LDAtNDcuMTc1LDIxLjExNC00Ny4xNzUsNDcuMTd2NzQuODg1SDQ3LjE2M2MtMjYuMDM1LDAtNDcuMTYxLDIxLjEyMS00Ny4xNjEsNDcuMTY2djMxLjU1DQoJCQkJYzAsMjYuMDQ5LDIxLjEyNiw0Ny4xNjMsNDcuMTYxLDQ3LjE2M2g3NC44ODl2NzQuODg3YzAsMjYuMDU2LDIxLjEyNSw0Ny4xOCw0Ny4xNzUsNDcuMThoNC4yOTdoMjcuMjQ2DQoJCQkJYzI2LjA1NiwwLDQ3LjE3LTIxLjEyNCw0Ny4xNy00Ny4xOHYtNzQuODg3aDc0Ljg4MmMyNi4wNjEsMCw0Ny4xNzctMjEuMTE0LDQ3LjE3Ny00Ny4xNjN2LTMxLjU1DQoJCQkJQzM2OS45OTgsMTQzLjE3NiwzNDguODgyLDEyMi4wNTUsMzIyLjgyMSwxMjIuMDU1eiBNMjQ2LjM3MiwxNzguMTUzYy0yLjg0NCwxNy4zMjItMjMuNTMyLDM2Ljc5Mi00MC4xOTYsNTIuNDY5DQoJCQkJYzAsMC04LjMxNSw4LjM0OS0xMC44MTIsMTAuNDg5Yy0xLjg3MywxLjYxMi01Ljk1MSw0Ljg1NC0xMC4zNiw0Ljg1NGMtNC40MTcsMC04LjQ4NS0zLjI0Mi0xMC4zNjgtNC44NTQNCgkJCQljLTIuNDk2LTIuMTQxLTEwLjgxMy0xMC40ODktMTAuODEzLTEwLjQ4OWMtMTYuNjY1LTE1LjY3Ny0zNy4zNTEtMzUuMTM4LTQwLjE5Ni01Mi40NjljLTEuOTk0LTEyLjI0OC0wLjA0OC0yMi4zNDcsNS43OTUtMzAuMDE1DQoJCQkJYzUuODk2LTcuNzQyLDE0Ljg2Ny0xMi4xNTksMjcuNDMxLTEzLjUwNGMxLjIxOC0wLjEyMiwyLjMxLTAuMTc5LDMuNDE0LTAuMTc5YzguODc1LDAsMTcuODUsMy4zMDcsMjQuNzI5LDguOTAxDQoJCQkJYzYuODktNS41OTQsMTUuODU1LTguOTAxLDI0Ljc0Ny04LjkwMWMxLjA5NCwwLDIuMTk3LDAuMDU3LDMuNDA0LDAuMTc5YzEyLjU2MywxLjM0NSwyMS41MjcsNS43NjIsMjcuNDI5LDEzLjUwNA0KCQkJCUMyNDYuNDIxLDE1NS44MDYsMjQ4LjM2NiwxNjUuOTA1LDI0Ni4zNzIsMTc4LjE1M3oiLz4NCgkJCTxwYXRoIHN0eWxlPSJmaWxsOiNGN0YxRTY7IiBkPSJNMjEzLjE0NywxMzQuNjM0Yy0xLjIwNy0wLjEyMi0yLjMxMS0wLjE3OS0zLjQwNC0wLjE3OWMtOC44OTIsMC0xNy44NTcsMy4zMDctMjQuNzQ3LDguOTAxDQoJCQkJYy02Ljg4LTUuNTk0LTE1Ljg1NC04LjkwMS0yNC43MjktOC45MDFjLTEuMTA0LDAtMi4xOTYsMC4wNTctMy40MTQsMC4xNzljLTEyLjU2MywxLjM0NS0yMS41MzUsNS43NjItMjcuNDMxLDEzLjUwNA0KCQkJCWMtNS44NDMsNy42NjgtNy43ODksMTcuNzY4LTUuNzk1LDMwLjAxNWMyLjg0NiwxNy4zMzEsMjMuNTMxLDM2Ljc5Miw0MC4xOTYsNTIuNDY5YzAsMCw4LjMxNiw4LjM0OSwxMC44MTMsMTAuNDg5DQoJCQkJYzEuODgzLDEuNjEyLDUuOTUxLDQuODU0LDEwLjM2OCw0Ljg1NGM0LjQwOSwwLDguNDg3LTMuMjQyLDEwLjM2LTQuODU0YzIuNDk2LTIuMTQxLDEwLjgxMi0xMC40ODksMTAuODEyLTEwLjQ4OQ0KCQkJCWMxNi42NjQtMTUuNjc3LDM3LjM1My0zNS4xNDYsNDAuMTk2LTUyLjQ2OWMxLjk5NC0xMi4yNDgsMC4wNDktMjIuMzQ3LTUuNzk2LTMwLjAxNQ0KCQkJCUMyMzQuNjc1LDE0MC4zOTYsMjI1LjcxMSwxMzUuOTc5LDIxMy4xNDcsMTM0LjYzNHoiLz4NCgkJPC9nPg0KCTwvZz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjwvc3ZnPg0K"
+  />
+
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/home" style="color: white;">Saude Center</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="nav navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle"  style="color: white;" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Cadastro
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li class="nav-item">
+                <a class="dropdown-item" routerLink="/cadastro">Cadastro do Paciente</a>
+              </li>
+              <li class="nav-item">
+                <a class="dropdown-item" routerLink="/cadastro-medico">Cadastro de Médico</a>
+              </li>
+              <li class="nav-item">
+                <a class="dropdown-item" routerLink="/cadastro-hospital">Cadastro de Hospitais</a>
+              </li>
+              <li class="nav-item">
+                <a class="dropdown-item" routerLink="/cadastro-especialidade">Cadastro de Especilidades</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/agendamento" style="color: white;">Agendamento de Consulta</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
 
 <router-outlet></router-outlet>

@@ -1,11 +1,18 @@
 import { AgendamentoComponent } from './agendamento/agendamento.component';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CadastroComponent } from './cadastro/cadastro.component';
+import { CadastroMedicoComponent } from './cadastro-medico/cadastro-medico.component';
+import { CadastroHospitalComponent } from './cadastro-hospital/cadastro-hospital.component';
+import { CadastroComponent } from './cadastro-paciente/cadastro.component';
+import { CadastroEspecialidadeComponent } from './cadastro-especialidade/cadastro-especialidade.component'
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  // rota dos componentes
+  { path: 'home', component: HomeComponent },
   { path: 'cadastro', component: CadastroComponent },
+  { path: 'cadastro-medico', component: CadastroMedicoComponent },
+  { path: 'cadastro-hospital', component: CadastroHospitalComponent },
+  { path: 'cadastro-especialidade', component: CadastroEspecialidadeComponent },
   { path: 'agendamento', component: AgendamentoComponent}
 ];
 

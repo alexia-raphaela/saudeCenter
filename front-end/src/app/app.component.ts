@@ -6,19 +6,37 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements OnInit {
   title = 'saudeCenter';
-  constructor(private router: Router) {
 
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
   }
-  ngOnInit() {
+
+  goToHome(){
+    this.router.navigate(['/home'])
   }
+
   goToCadastro(){
-    this.router.navigate(['/', 'cadastro']);
+    this.router.navigate(['/cadastro']);
+  }
+
+  goToCadastroMedicos(){
+    this.router.navigate(['/cadastro-medico'])
+  }
+
+  goToCadastroHospitais(){
+    this.router.navigate(['/cadastro-hospital'])
+  }
+
+  goToCadastroEspecialidades(){
+    this.router.navigate(['/cadastro-especialidade'])
   }
 
   goToAgendamento(){
-    this.router.navigate(['/', 'agendamento']);
+    this.router.navigate(['/agendamento']);
   }
 
 }
