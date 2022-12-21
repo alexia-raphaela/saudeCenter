@@ -25,7 +25,7 @@ public partial class SaudeCenterContext : DbContext
 
     public virtual DbSet<Beneficiario> Beneficiarios { get; set; }
 
-    public virtual DbSet<DadosBancario> DadosBancarios { get; set; }
+    public virtual DbSet<DadosBancarios> DadosBancarios { get; set; }
 
     public virtual DbSet<Especialidade> Especialidades { get; set; }
 
@@ -132,7 +132,7 @@ public partial class SaudeCenterContext : DbContext
                 .IsUnicode(false);
         });
 
-        modelBuilder.Entity<DadosBancario>(entity =>
+        modelBuilder.Entity<DadosBancarios>(entity =>
         {
             entity.HasKey(e => e.IdDadosBancarios);
 

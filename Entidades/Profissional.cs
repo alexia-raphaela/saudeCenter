@@ -19,5 +19,5 @@ public partial class Profissional
 
     public virtual ICollection<Agendamento> Agendamentos { get; } = new List<Agendamento>();
 
-    public virtual ICollection<DadosBancario> DadosBancarios { get; } = new List<DadosBancario>();
+    public virtual ICollection<DadosBancarios> DadosBancarios { get; } = new List<DadosBancarios>();
 }

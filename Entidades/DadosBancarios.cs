@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SaudeCenter.Entidades;
 
-public partial class DadosBancario
+public partial class DadosBancarios
 {
     public int IdDadosBancarios { get; set; }
 
