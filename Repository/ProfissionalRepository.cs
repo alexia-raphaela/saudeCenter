@@ -4,131 +4,120 @@ using SaudeCenter.Dto;
 using SaudeCenter.Entidades;
 using System.Data;
 using System.Text;
-
 namespace SaudeCenter.Repository
 {
-    public class EspecialidadeRepository : IEspecialidadeRepository
+    public class ProfissionalRepository : IProfissionalRepository
     {
-        public EspecialidadeRepository()
+        public ProfissionalRepository()
         {
-
         }
-
-        public IList<EspecialidadeDto>? ListarTodos()
+        public IList<ProfissionalDto>? ListarTodos()
         {
             try
             {
                 StringBuilder strComando = new StringBuilder();
                 strComando.AppendLine(
-                    "SELECT IdEspecialidade, " +
+                    "SELECT IdProfissional, " +
                     "Nome, " +
-                    "Descricao, " +
+                    "Telefone, " +
+                    "Endereco, " +
                     "Ativo " +
-                    "FROM Especialidade");
-
-                
+                    "FROM Profissional ");
                 SqlConnection connection = new SqlConnection(new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build().GetConnectionString("Sql"));
-                List<EspecialidadeDto> especialidades = connection.Query<EspecialidadeDto>(strComando.ToString()).ToList();
-
-                return especialidades;
+                List<ProfissionalDto> profissional = connection.Query<ProfissionalDto>(strComando.ToString()).ToList();
+                return profissional;
             }
             catch (Exception)
             {
                 return null;
             }
         }
-
-        public EspecialidadeDto Consultar(int idEspecialidade)
+        public ProfissionalDto Consultar(int idProfissional)
         {
             try
             {
                 SqlConnection connection = new SqlConnection(new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build().GetConnectionString("Sql"));
-
                 var dynamicParameters = new DynamicParameters();
-                dynamicParameters.Add("@idEspecialidade", idEspecialidade);
-
-                EspecialidadeDto especialidade =
-                connection.Query<EspecialidadeDto>(
-                    "SELECT IdEspecialidade," +
-                    "Nome, " +
-                    "Descricao, " +
-                    "Ativo " +
-                    "FROM Especialidade " +
-                    "WHERE idEspecialidade = @idEspecialidade",
+                dynamicParameters.Add("@idProfissional", idProfissional);
+                ProfissionalDto profissional =
+                connection.Query<ProfissionalDto>(
+                    "SELECT IdProfissional, Nome, Telefone, Endereco, Ativo " +
+                    "FROM Profissional " +
+                    "WHERE IdProfissional = @idProfissional",
                 dynamicParameters
                 ).FirstOrDefault();
 
-                if (especialidade == null || especialidade.IdEspecialidade == 0)
+                if (profissional == null || profissional.IdProfissional == 0)
                 {
                     return null;
                 }
-                return especialidade;
+                return profissional;
             }
             catch (Exception)
             {
                 return null;
             }
-
         }
-
-        public int Inserir(Especialidade especialidade)
+        public int Inserir(ProfissionalDto profissional)
         {
             try
             {
                 SqlConnection connection = new SqlConnection(new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build().GetConnectionString("Sql"));
-
-                int linhasAfetadas = connection.Execute(
-                        "INSERT INTO ESPECIALIDADE (Nome, Descricao, Ativo) " +
-                        "VALUES (@Nome, @Descricao, @Ativo) ", especialidade);
-                return linhasAfetadas;
-            }
-            catch (Exception)
-            {
-                return 0;
-            }
-        }
-
-        public int Alterar(EspecialidadeDto especialidade)
-        {
-            try
-            {
-                SqlConnection connection = new SqlConnection(new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build().GetConnectionString("Sql"));
-
-                int linhasAfetadas = connection.Execute(
-                        "UPDATE ESPECIALIDADE " +
-                        "SET Nome = @Nome, " +
-                        "Descricao= @Descricao, " +
-                        "Ativo = @Ativo " +
-                        "WHERE idEspecialidade = @idEspecialidade", especialidade);
-
-                return linhasAfetadas;
-            }
-            catch (Exception)
-            {
-                return 0;
-            }
-
-        }
-
-        public int Excluir(int idEspecialidade)
-        {
-            try
-            {
-                SqlConnection connection = new SqlConnection(new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build().GetConnectionString("Sql"));
-
                 var dynamicParameters = new DynamicParameters();
-                dynamicParameters.Add("@idEspecialidade", idEspecialidade);
-
+                dynamicParameters.Add("@Nome", profissional.Nome);
+                dynamicParameters.Add("@Telefone", profissional.Telefone);
+                dynamicParameters.Add("@Endereco", profissional.Endereco);
+                dynamicParameters.Add("@Ativo", profissional.Ativo);
                 int linhasAfetadas = connection.Execute(
-                        "DELETE from ESPECIALIDADE WHERE idEspecialidade = @idEspecialidade", dynamicParameters);
-
+                        "INSERT INTO Profissional (Nome, Telefone, Endereco, Ativo) " +
+                        "VALUES (@Nome, @Telefone, @Endereco, @Ativo)", dynamicParameters);
                 return linhasAfetadas;
             }
             catch (Exception)
             {
                 return 0;
             }
-
         }
-     }
+        public int Alterar(ProfissionalDto profissional)
+        {
+            try
+            {
+                SqlConnection connection = new SqlConnection(new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build().GetConnectionString("Sql"));
+                var dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("@IdProfissional", profissional.IdProfissional);
+                dynamicParameters.Add("@Nome", profissional.Nome);
+                dynamicParameters.Add("@Telefone", profissional.Telefone);
+                dynamicParameters.Add("@Endereco", profissional.Endereco);
+                dynamicParameters.Add("@Ativo", profissional.Ativo);
+                int linhasAfetadas = connection.Execute(
+                        "UPDATE Profissional SET " +
+                        "Nome = @Nome, " +
+                        "Telefone = @Telefone, " +
+                        "Endereco = @Endereco, " +
+                        "Ativo = @Ativo " +
+                        "WHERE idProfissional = @IdProfissional ", dynamicParameters);
+                return linhasAfetadas;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+        public int Excluir(int idProfissional)
+        {
+            try
+            {
+                SqlConnection connection = new SqlConnection(new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build().GetConnectionString("Sql"));
+                var dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("@idProfissional", idProfissional);
+                int linhasAfetadas = connection.Execute(
+                        "DELETE from Profissional WHERE idProfissional = @idProfissional", dynamicParameters);
+                return linhasAfetadas;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+    }
 }

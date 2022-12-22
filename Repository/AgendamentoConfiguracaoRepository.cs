@@ -20,6 +20,7 @@ namespace SaudeCenter.Repository
                 StringBuilder strComando = new StringBuilder();
                 strComando.AppendLine(
                     "SELECT IdConfiguracao, " +
+                    "IdHospital, " +
                     "IdEspecialidade, " +
                     "IdProfissional, " +
                     "DataHoraInicioAtendimento, " +
@@ -37,16 +38,16 @@ namespace SaudeCenter.Repository
             }
         }
 
-        public AgendamentoConfiguracao Consultar(int idAgendamentoConfiguracao)
+        public AgendamentoConfiguracaoDto Consultar(int idConfiguracao)
         {
             try
             {
                 var dynamicParameters = new DynamicParameters();
-                dynamicParameters.Add("@idAgendamentoConfiguracao", idAgendamentoConfiguracao);
+                dynamicParameters.Add("@idConfiguracao", idConfiguracao);
 
                 SqlConnection connection = new SqlConnection(new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build().GetConnectionString("Sql"));
-                AgendamentoConfiguracao configuracao =
-                connection.Query<AgendamentoConfiguracao>(
+                AgendamentoConfiguracaoDto configuracao =
+                connection.Query<AgendamentoConfiguracaoDto>(
                     "SELECT idConfiguracao, " +
                     "IdHospital, " +
                     "IdEspecialidade, " +
@@ -70,15 +71,15 @@ namespace SaudeCenter.Repository
 
         }
 
-        public int Inserir(AgendamentoConfiguracao configuracao)
+        public int Inserir(AgendamentoConfiguracaoDto configuracao)
         {
             try
             {
                 SqlConnection connection = new SqlConnection(new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build().GetConnectionString("Sql"));
 
                 int linhasAfetadas = connection.Execute(
-                        "INSERT INTO AGENDAMENTOCONFIGURACAO (IdConfiguracao, IdHospital, IdEspecialidade, IdProfissional, DataHoraInicioAtendimento, DataHoraFinalAtendimento) " +
-                        "VALUES (@IdConfiguracao, @IdHospital, @IdEspecialidade, @IdProfissional, @DataHoraInicioAtendimento, @DataHoraFinalAtendimento) ", configuracao);
+                        "INSERT INTO AGENDAMENTOCONFIGURACAO (IdHospital, IdEspecialidade, IdProfissional, DataHoraInicioAtendimento, DataHoraFinalAtendimento) " +
+                        "VALUES (@IdHospital, @IdEspecialidade, @IdProfissional, @DataHoraInicioAtendimento, @DataHoraFinalAtendimento) ", configuracao);
 
                 return linhasAfetadas;
             }
@@ -100,7 +101,7 @@ namespace SaudeCenter.Repository
                         "IdEspecialidade = @IdEspecialidade, " +
                         "IdProfissional = @IdProfissional, " +
                         "DataHoraInicioAtendimento = @DataHoraInicioAtendimento, " +
-                        "DataHoraFinalAtendimento = @DataHoraFinalAtendimento, " +
+                        "DataHoraFinalAtendimento = @DataHoraFinalAtendimento " +
                         "WHERE idConfiguracao = @idConfiguracao", configuracao);
 
                 return linhasAfetadas;

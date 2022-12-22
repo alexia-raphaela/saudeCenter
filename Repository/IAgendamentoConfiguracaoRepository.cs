@@ -1,14 +1,13 @@
 ﻿using SaudeCenter.Dto;
-using SaudeCenter.Entidades;
 
 namespace SaudeCenter.Repository
 {
     public interface IAgendamentoConfiguracaoRepository
     {
         int Alterar(AgendamentoConfiguracaoDto configuracao);
-        AgendamentoConfiguracao Consultar(int idAgendamentoConfiguracao);
+        AgendamentoConfiguracaoDto Consultar(int idAgendamentoConfiguracao);
         int Excluir(int idConfiguracao);
-        int Inserir(AgendamentoConfiguracao configuracao);
+        int Inserir(AgendamentoConfiguracaoDto configuracao);
         IList<AgendamentoConfiguracaoDto>? ListarTodos();
     }
 }
