@@ -37,9 +37,9 @@ export class CadastroComponent {
 
   cadastrar() {
     //implementar o objeto na api, chamar a api(subcribe)
-    this.http.post('https://localhost:7154/api/Beneficiario/CadastrarBeneficiario', this.beneficiario)
+    this.http.post('https://localhost:7154/Beneficiario/CadastrarBeneficiario', this.beneficiario)
       .subscribe((data: any) => {
-          this.router.navigate(['beneficiario']);
+          this.router.navigate(['cadastro']);
       });
   }
 
