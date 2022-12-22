@@ -162,7 +162,7 @@ public partial class SaudeCenterContext : DbContext
 
             entity.ToTable("Especialidade");
 
-            entity.Property(e => e.Descrição).IsUnicode(false);
+            entity.Property(e => e.Descricao).IsUnicode(false);
             entity.Property(e => e.Nome)
                 .HasMaxLength(100)
                 .IsUnicode(false);

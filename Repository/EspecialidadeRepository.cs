@@ -78,8 +78,8 @@ namespace SaudeCenter.Repository
                 SqlConnection connection = new SqlConnection(new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build().GetConnectionString("Sql"));
 
                 int linhasAfetadas = connection.Execute(
-                        "INSERT INTO ESPECIALIDADE (Nome, Descrição, Ativo) " +
-                        "VALUES (@Nome, @Descrição, @Ativo) ", especialidade);
+                        "INSERT INTO ESPECIALIDADE (Nome, Descricao, Ativo) " +
+                        "VALUES (@Nome, @Descricao, @Ativo) ", especialidade);
                 return linhasAfetadas;
             }
             catch (Exception)
