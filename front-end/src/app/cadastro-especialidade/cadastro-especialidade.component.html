@@ -2,12 +2,16 @@
 <form class="container pt-4 m-5">
     <div class="col-md-4">
       <label for="inputName" class="form-label">Nome</label>
-      <input type="text" class="form-control" id="inputName">
+      <input type="text" class="form-control" id="inputName" [(ngModel)]="especialidade.nome" name="nome">
     </div>
 
     <div class="col-md-4">
       <label for="inputDescription" class="form-label">Descrição</label>
-      <input type="text" class="form-control" id="inputDescription">
+      <input type="text" class="form-control" id="inputDescription" [(ngModel)]="especialidade.descricao" name="descricao">
+    </div>
+
+    <div>
+      <button type="submit" class="btn mt-4" (click)="cadastrar()" style="background-color: #1358ab; color: white;">Cadastrar</button>
     </div>
 </form>
 

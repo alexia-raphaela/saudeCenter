@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'cadastro-hospital', component: CadastroHospitalComponent },
   { path: 'cadastro-especialidade', component: CadastroEspecialidadeComponent },
   { path: 'listagem-paciente', component: ListagemPacienteComponent },
-  { path: 'agendamento', component: AgendamentoComponent}
+  { path: 'agendamento', component: AgendamentoComponent},
 ];
 
 @NgModule({
