@@ -27,8 +27,6 @@ export class CadastroMedicoComponent {
     idRecebido!: number;
 
 
-
-
     constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {
 
       this.route.paramMap.subscribe(params => {

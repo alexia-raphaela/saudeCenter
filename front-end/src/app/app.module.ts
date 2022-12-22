@@ -11,6 +11,7 @@ import { CadastroEspecialidadeComponent } from './cadastro-especialidade/cadastr
 import { HomeComponent } from './home/home.component';
 import { ListagemPacienteComponent } from './listagem-paciente/listagem-paciente.component';
 import { FormsModule } from '@angular/forms';
+import { CadastroDadosBancariosComponent } from './cadastro-dados-bancarios/dados-bancarios.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FormsModule } from '@angular/forms';
     CadastroMedicoComponent,
     CadastroEspecialidadeComponent,
     HomeComponent,
-    ListagemPacienteComponent
+    ListagemPacienteComponent,
+    CadastroDadosBancariosComponent
   ],
   imports: [
     BrowserModule,
