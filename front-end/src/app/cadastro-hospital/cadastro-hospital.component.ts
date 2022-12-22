@@ -31,9 +31,9 @@ export class CadastroHospitalComponent {
 
   cadastrarHospital() {
     //implementar o objeto na api, chamar a api(subcribe)
-    this.http.post('https://localhost:7154/api/Hospital/CadastrarHospital', this.hospital)
+    this.http.post('https://localhost:7154/Hospital/CadastrarHospital', this.hospital)
       .subscribe((data: any) => {
-          this.router.navigate(['hospital']);
+          this.router.navigate(['cadastro-hospital']);
       });
   }
 
