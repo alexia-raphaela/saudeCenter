@@ -3,46 +3,41 @@
   <div class="row">
     <div class="col-md-4">
       <label for="inputName" class="form-label">Nome do Hospital</label>
-      <input type="text" class="form-control" id="inputName">
+      <input type="text" class="form-control" id="inputName" [(ngModel)]="hospital.nome" name="inputName">
     </div>
 
     <div class="col-md-4">
       <label for="inputCnpj" class="form-label">CNPJ</label>
-      <input type="text" class="form-control" id="inputCnpj">
+      <input type="text" class="form-control" id="inputCnpj" [(ngModel)]="hospital.cnpj" name="inputCnpj">
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-4">
       <label for="inputAddress" class="form-label">Endereço</label>
-      <input type="text" class="form-control" id="inputAddress">
-    </div>
-
-    <div class="col-md-2">
-      <label for="inputCity" class="form-label">Cidade</label>
-      <input type="text" class="form-control" id="inputCity">
-    </div>
-
-    <div class="col-md-2">
-      <label for="inputState" class="form-label">Estado</label>
-      <input type="text" class="form-control" id="inputState">
+      <input type="text" class="form-control" id="inputAddress" [(ngModel)]="hospital.endereco" name="inputAddress">
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-3">
       <label for="inputPhone" class="form-label">Telefone</label>
-      <input type="text" class="form-control" id="inputPhone">
+      <input type="text" class="form-control" id="inputPhone" [(ngModel)]="hospital.telefone" name="inputPhone">
     </div>
 
     <div class="col-md-3">
       <label for="inputCNES" class="form-label">CNES</label>
-      <input type="text" class="form-control" id="inputCNES">
+      <input type="text" class="form-control" id="inputCNES" [(ngModel)]="hospital.cnes" name="inputCNES">
+    </div>
+
+    <div class="col-md-3">
+      <label for="inputAtivo" class="form-label">Ativo</label>
+      <input type="text" class="form-control" id="inputAtivo" [(ngModel)]="hospital.ativo" name="inputAtivo">
     </div>
   </div>
 
   <div>
-    <button type="submit" class="btn" style="background-color: #1358ab; color: white;">Cadastrar</button>
+    <button (click)="cadastrarHospital()" class="btn" style="background-color: #1358ab; color: white;">Cadastrar</button>
   </div>
 </form>
 
