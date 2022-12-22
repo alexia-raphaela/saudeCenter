@@ -20,7 +20,7 @@ namespace SaudeCenter.Repository
             {
                 StringBuilder strComando = new StringBuilder();
                 strComando.AppendLine(
-                    "SELECT idHospital, Nome, CNPJ, Endereço, Telefone, CNES, Ativo FROM HOSPITAL");
+                    "SELECT idHospital, Nome, CNPJ, Endereco, Telefone, CNES, Ativo FROM HOSPITAL");
 
                 SqlConnection connection = new SqlConnection(new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build().GetConnectionString("Sql"));
                 List<HospitalDto> hospitais = connection.Query<HospitalDto>(strComando.ToString()).ToList();
@@ -66,8 +66,8 @@ namespace SaudeCenter.Repository
                 SqlConnection connection = new SqlConnection(new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build().GetConnectionString("Sql"));
 
                 int linhasAfetadas = connection.Execute(
-                        "INSERT INTO Hospital (Nome, Cnpj, Endereço, Telefone, Cnes, Ativo) " +
-                        "VALUES (@Nome, @Cnpj, @Endereço, @Telefone, @Cnes, @Ativo) ", hospital);
+                        "INSERT INTO Hospital (Nome, Cnpj, Endereco, Telefone, Cnes, Ativo) " +
+                        "VALUES (@Nome, @Cnpj, @Endereco, @Telefone, @Cnes, @Ativo) ", hospital);
                 return linhasAfetadas;
             }
             catch (Exception)
@@ -86,7 +86,7 @@ namespace SaudeCenter.Repository
                         "UPDATE HOSPITAL SET " +
                         "Nome = @Nome, " +
                         "Cnpj = @Cnpj, " +
-                        "Endereço = @Endereço, " +
+                        "Endereco = @Endereco, " +
                         "Telefone = @Telefone, " +
                         "Cnes = @Cnes, " +
                         "Ativo = @Ativo " +

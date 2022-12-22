@@ -22,7 +22,7 @@ namespace SaudeCenter.Repository
                 strComando.AppendLine(
                     "SELECT IdEspecialidade, " +
                     "Nome, " +
-                    "Descrição, " +
+                    "Descricao, " +
                     "Ativo " +
                     "FROM Especialidade");
 
@@ -51,7 +51,7 @@ namespace SaudeCenter.Repository
                 connection.Query<EspecialidadeDto>(
                     "SELECT IdEspecialidade," +
                     "Nome, " +
-                    "Descrição, " +
+                    "Descricao, " +
                     "Ativo " +
                     "FROM Especialidade " +
                     "WHERE idEspecialidade = @idEspecialidade",
@@ -79,7 +79,7 @@ namespace SaudeCenter.Repository
 
                 int linhasAfetadas = connection.Execute(
                         "INSERT INTO ESPECIALIDADE (Nome, Descrição, Ativo) " +
-                        "VALUES (@Nome, @Descrição, @Ativo) ", especialidade);
+                        "VALUES (@Nome, @Descricao, @Ativo) ", especialidade);
                 return linhasAfetadas;
             }
             catch (Exception)
@@ -97,7 +97,7 @@ namespace SaudeCenter.Repository
                 int linhasAfetadas = connection.Execute(
                         "UPDATE ESPECIALIDADE " +
                         "SET Nome = @Nome, " +
-                        "Descrição= @Descrição, " +
+                        "Descricao= @Descricao, " +
                         "Ativo = @Ativo " +
                         "WHERE idEspecialidade = @idEspecialidade", especialidade);
 

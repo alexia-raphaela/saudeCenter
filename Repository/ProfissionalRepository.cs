@@ -20,7 +20,7 @@ namespace SaudeCenter.Repository
                     "SELECT IdProfissional, " +
                     "Nome, " +
                     "Telefone, " +
-                    "Endereço, " +
+                    "Endereco, " +
                     "Ativo " +
                     "FROM Profissional ");
                 SqlConnection connection = new SqlConnection(new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build().GetConnectionString("Sql"));
@@ -41,7 +41,7 @@ namespace SaudeCenter.Repository
                 dynamicParameters.Add("@idProfissional", idProfissional);
                 ProfissionalDto profissional =
                 connection.Query<ProfissionalDto>(
-                    "SELECT IdProfissional, Nome, Telefone, Endereço, Ativo " +
+                    "SELECT IdProfissional, Nome, Telefone, Endereco, Ativo " +
                     "FROM Profissional " +
                     "WHERE IdProfissional = @idProfissional",
                 dynamicParameters
@@ -66,11 +66,11 @@ namespace SaudeCenter.Repository
                 var dynamicParameters = new DynamicParameters();
                 dynamicParameters.Add("@Nome", profissional.Nome);
                 dynamicParameters.Add("@Telefone", profissional.Telefone);
-                dynamicParameters.Add("@Endereço", profissional.Endereço);
+                dynamicParameters.Add("@Endereco", profissional.Endereco);
                 dynamicParameters.Add("@Ativo", profissional.Ativo);
                 int linhasAfetadas = connection.Execute(
-                        "INSERT INTO Profissional (Nome, Telefone, Endereço, Ativo) " +
-                        "VALUES (@Nome, @Telefone, @Endereço, @Ativo)", dynamicParameters);
+                        "INSERT INTO Profissional (Nome, Telefone, Endereco, Ativo) " +
+                        "VALUES (@Nome, @Telefone, @Endereco, @Ativo)", dynamicParameters);
                 return linhasAfetadas;
             }
             catch (Exception)
@@ -87,13 +87,13 @@ namespace SaudeCenter.Repository
                 dynamicParameters.Add("@IdProfissional", profissional.IdProfissional);
                 dynamicParameters.Add("@Nome", profissional.Nome);
                 dynamicParameters.Add("@Telefone", profissional.Telefone);
-                dynamicParameters.Add("@Endereço", profissional.Endereço);
+                dynamicParameters.Add("@Endereco", profissional.Endereco);
                 dynamicParameters.Add("@Ativo", profissional.Ativo);
                 int linhasAfetadas = connection.Execute(
                         "UPDATE Profissional SET " +
                         "Nome = @Nome, " +
                         "Telefone = @Telefone, " +
-                        "Endereço = @Endereço, " +
+                        "Endereco = @Endereco, " +
                         "Ativo = @Ativo " +
                         "WHERE idProfissional = @IdProfissional ", dynamicParameters);
                 return linhasAfetadas;
