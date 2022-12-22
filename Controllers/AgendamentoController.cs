@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using SaudeCenter.Dto;
 using SaudeCenter.Entidades;
 using SaudeCenter.Repository;
+using SaudeCenter.Validation;
 
 namespace SaudeCenter.Controllers
 {
@@ -11,10 +12,13 @@ namespace SaudeCenter.Controllers
     public class AgendamentoController : ControllerBase
     {
         private readonly AgendamentoRepository agendamentoRepository;
+        private readonly AgendamentoValidation agendamentoValidation;
+        int linhasAfetadas;
 
         public AgendamentoController()
         {
             agendamentoRepository = new AgendamentoRepository();
+            agendamentoValidation = new AgendamentoValidation();
         }
 
 
@@ -73,13 +77,20 @@ namespace SaudeCenter.Controllers
         {
             try
             {
-                int linhasAfetadas = agendamentoRepository.Inserir(agendamento);
-
-                if (linhasAfetadas == 0)
+                var validacao = agendamentoValidation.validacao(agendamento);
+                if (string.IsNullOrEmpty(validacao))
                 {
-                    return BadRequest("Nenhum Cadastro foi realizado.");
-                }
+                    linhasAfetadas = agendamentoRepository.Inserir(agendamento);
 
+                    if (linhasAfetadas == 0)
+                    {
+                        return BadRequest("Nenhum Cadastro foi realizado.");
+                    }
+                }
+                else
+                {
+                    return BadRequest(validacao);
+                }
                 return Ok(linhasAfetadas);
             }
             catch (Exception ex)
