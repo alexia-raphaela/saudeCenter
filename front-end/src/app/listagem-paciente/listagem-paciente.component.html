@@ -1,26 +1,49 @@
-<h2 class="m-3" style="color: #1358ab">LISTAGEM DOS PACIENTES</h2>
+<div *ngIf="telaParaApresentar == 'lista'">
+  <div>
+    <h3 class="text-center" >Lista de Pacientes</h3>
+    <!-- <div class="input-group-prepend"> -->
+      <!--<input type="text" placeholder="Adicionar tarefa" name="tarefa" #tarefa
+      [(ngModel)]="tarefaNomeModel" maxlength="5" class="form-control">-->
 
-<table class="table table-striped">
-  <thead class="tr-dark">
-    <tr>
-      <th>Nome Completo</th>
-      <th>Nº Carteirinha</th>
-      <th>Telefone</th>
-      <th>Opções</th>
-    </tr>
-  </thead>
+    <!--<span (click)="adicionarPessoa();" class="input-group-text">
+      <i class="material-icons">add</i>
+    </span>-->
+    <!-- </div> -->
+  </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Cpf</th>
+          <th>Email</th>
+          <th>Endereço</th>
+          <th>Telefone</th>
+          <th>NumeroCarteirinha</th>
+          <th>status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr  *ngFor="let pacienteItem of listaPacientes">
+          <td>{{pacienteItem.nome}}</td>
+          <td>{{pacienteItem.cpf}}</td>
+          <td>{{pacienteItem.email}}</td>
+          <td>{{pacienteItem.endereco}}</td>
+          <td>{{pacienteItem.telefone}}</td>
+          <td>{{pacienteItem.numeroCarteirinha}}</td>
+          <td>{{pacienteItem.ativo == true?"ativo": "inativo"}}</td>
+        </tr>
+      </tbody>
+    </table>
+  <!--<div class="data">
+    <ul class="list-unstyled">
+      <li *ngFor="let medicoItem of listaProfissionais">
+        <span>{{medicoItem.nome}}</span><br>
+        <span>{{medicoItem.endereco}}</span><br>
+        <span>{{medicoItem.ativo}}</span><br>
+        <span>{{medicoItem.telefone}}</span><br>
+      </li>
+    </ul>
+  </div>-->
+</div>
 
-  <tbody>
-    <tr>
-      <td>Exemplo</td>
-      <td>Exemplo</td>
-      <td>Exemplo</td>
-      <td>
-        <button type="button" class="btn btn-sm mr-1" style="background-color: #0a2262; color: white;">Editar</button>
-        <button type="button" class="btn btn-sm ms-1" style="background-color: #0a2262; color: white;">Excluir</button>
-      </td>
-      <td>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<!-- <app-listagem-medico *ngIf="telaParaApresentar == 'lista'" ></app-listagem-medico> -->
