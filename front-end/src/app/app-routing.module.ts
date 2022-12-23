@@ -9,6 +9,7 @@ import { CadastroEspecialidadeComponent } from './cadastro-especialidade/cadastr
 import { HomeComponent } from './home/home.component';
 import { CadastroDadosBancariosComponent } from './cadastro-dados-bancarios/dados-bancarios.component';
 import { ListagemPacienteComponent } from './listagem-paciente/listagem-paciente.component';
+import { ListagemHospitaisComponent } from './listagem-hospitais/listagem-hospitais.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'agendamento', component: AgendamentoComponent},
   { path: 'cadastro-dados-bancarios', component: CadastroDadosBancariosComponent },
   { path: 'listagem-medicos', component: ListagemMedicoComponent},
-  { path: 'listagem-paciente', component: ListagemPacienteComponent}
+  { path: 'listagem-paciente', component: ListagemPacienteComponent},
+  { path: 'listagem-hospitais', component: ListagemHospitaisComponent}
 
 ];
 

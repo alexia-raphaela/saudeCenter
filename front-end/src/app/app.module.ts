@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { CadastroDadosBancariosComponent } from './cadastro-dados-bancarios/dados-bancarios.component';
 import { ListagemMedicoComponent } from './listagem-medicos/listagem-medicos.component';
 import { ListagemPacienteComponent } from './listagem-paciente/listagem-paciente.component';
+import { ListagemHospitaisComponent } from './listagem-hospitais/listagem-hospitais.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ListagemPacienteComponent } from './listagem-paciente/listagem-paciente
     CadastroDadosBancariosComponent,
     ListagemMedicoComponent,
     ListagemPacienteComponent,
+    ListagemHospitaisComponent,
   ],
   imports: [
     BrowserModule,
