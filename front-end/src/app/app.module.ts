@@ -9,9 +9,10 @@ import { CadastroHospitalComponent } from './cadastro-hospital/cadastro-hospital
 import { CadastroMedicoComponent } from './cadastro-medico/cadastro-medico.component';
 import { CadastroEspecialidadeComponent } from './cadastro-especialidade/cadastro-especialidade.component';
 import { HomeComponent } from './home/home.component';
-import { ListagemPacienteComponent } from './listagem-paciente/listagem-paciente.component';
 import { FormsModule } from '@angular/forms';
 import { CadastroDadosBancariosComponent } from './cadastro-dados-bancarios/dados-bancarios.component';
+import { ListagemMedicoComponent } from './listagem-medicos/listagem-medicos.component';
+import { ListagemPacienteComponent } from './listagem-paciente/listagem-paciente.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +23,9 @@ import { CadastroDadosBancariosComponent } from './cadastro-dados-bancarios/dado
     CadastroMedicoComponent,
     CadastroEspecialidadeComponent,
     HomeComponent,
+    CadastroDadosBancariosComponent,
+    ListagemMedicoComponent,
     ListagemPacienteComponent,
-    CadastroDadosBancariosComponent
   ],
   imports: [
     BrowserModule,

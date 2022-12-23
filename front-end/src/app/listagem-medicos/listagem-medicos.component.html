@@ -1,0 +1,43 @@
+<div *ngIf="telaParaApresentar == 'lista'">
+  <div>
+    <h3 class="text-center" >Lista de Médicos</h3>
+    <!-- <div class="input-group-prepend"> -->
+      <!--<input type="text" placeholder="Adicionar tarefa" name="tarefa" #tarefa
+      [(ngModel)]="tarefaNomeModel" maxlength="5" class="form-control">-->
+
+    <!--<span (click)="adicionarPessoa();" class="input-group-text">
+      <i class="material-icons">add</i>
+    </span>-->
+    <!-- </div> -->
+  </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Telefone</th>
+          <th>Endereço</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr  *ngFor="let medicoItem of listaProfissionais">
+          <td>{{medicoItem.nome}}</td>
+          <td>{{medicoItem.telefone}}</td>
+          <td>{{medicoItem.endereco}}</td>
+          <td>{{medicoItem.ativo == true?"ativo": "inativo"}}</td>
+        </tr>
+      </tbody>
+    </table>
+  <!--<div class="data">
+    <ul class="list-unstyled">
+      <li *ngFor="let medicoItem of listaProfissionais">
+        <span>{{medicoItem.nome}}</span><br>
+        <span>{{medicoItem.endereco}}</span><br>
+        <span>{{medicoItem.ativo}}</span><br>
+        <span>{{medicoItem.telefone}}</span><br>
+      </li>
+    </ul>
+  </div>-->
+</div>
+
+<!-- <app-listagem-medico *ngIf="telaParaApresentar == 'lista'" ></app-listagem-medico> -->
